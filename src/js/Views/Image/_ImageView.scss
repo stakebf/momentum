@@ -1,0 +1,139 @@
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position-x: 0;
+  transition: background-position-x .3s ease-in-out;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &::before {
+    content: '';
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    background: #0d141f;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 10px;
+    background: #525861;
+  }
+
+  &.body_offset {
+    background-position-x: 110vw;
+  }
+
+  .change-image-btn {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    background: url('../assets/images/rotate-arrows.png'), #fff;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: .3s all;
+
+    animation-fill-mode: forwards;
+    animation: 1s linear infinite rotating;
+    animation-play-state: paused;
+
+    &:disabled {
+      animation-play-state: running;
+      filter: opacity(0.5);
+    }
+
+    &:hover {
+      filter: opacity(0.5);
+    }
+  }
+
+  @keyframes rotating {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .all-images {
+    display: inline-block;
+    margin-top: 10px;
+  
+    &__btn {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      border: 0;
+      padding: 0;
+      background: #fff;
+      width: 40px;
+      height: 40px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+      overflow: hidden;
+
+      &::before {
+        position: absolute;
+        content: '';
+        background: url('../assets/images/picture-icon.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: block;
+        width: 20px;
+        height: 20px;
+        top: 0;
+        left: 20px;
+        transform: translate(-50%, 50%);
+      }
+
+      &:hover {
+        width: 14em;
+      }
+
+      &:hover .all-images__text {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    &__text {
+      position: absolute;
+      left: 40px;
+      white-space: nowrap;
+      top: 12px;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    }
+  }
+}
+
+.images-controls__wrapper {
+  display: flex;
+  width: 150px;
+  flex-direction: column;
+  justify-content: space-around;
+
+  @media (max-width: 1000px) {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+}

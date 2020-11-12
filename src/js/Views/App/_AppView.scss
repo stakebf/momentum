@@ -1,0 +1,31 @@
+.app {
+  padding: 25px;
+
+  &__wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px 15px;
+    border-radius: 10px;
+    background: rgba(255,255,255, .5);
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transform: translateY(-300px);
+      opacity: 0;
+      transition: transform .4s, opacity .8s;
+  
+      &_visible {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      @media (max-width: 1000px) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+}

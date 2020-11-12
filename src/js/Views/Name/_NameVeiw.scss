@@ -1,0 +1,56 @@
+.username__wrapper {
+  display: inline-block;
+  position: relative;
+
+  .username__new-name {
+    width: 220px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    font-size: 2.5rem;
+
+    &::-webkit-input-placeholder {
+      color: red;
+      font-size: 2.1rem;
+      vertical-align: middle;
+      height: 2.5rem;
+    }
+    &::-moz-placeholder {
+      color: red;
+      font-size: 2.1rem;
+      vertical-align: middle;
+      height: 2.5rem;
+    }
+    &:-ms-input-placeholder {
+      color: red;
+      font-size: 2.1rem;
+      vertical-align: middle;
+      height: 2.5rem;
+    }
+    &:-moz-placeholder {
+      color: red;
+      font-size: 2.1rem;
+      vertical-align: middle;
+      height: 2.5rem;
+    }
+  }
+
+  .username {
+    &__save-name {
+      width: 15px;
+      height: 15px;
+      background: red;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      right: 0;
+      top: 0;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 15px;
+    }
+
+    &.name_hidden {
+      display: none;
+    }
+  }
+}

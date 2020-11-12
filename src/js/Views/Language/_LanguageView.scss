@@ -1,0 +1,44 @@
+.btns-lang__wrapper {
+  position: relative;
+
+  .btn-lng {
+    padding: 7px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid transparent;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .3s;
+    margin: 0 10px;
+    width: 32px;
+    height: 32px;
+
+    &:hover {
+      filter: opacity(0.6);
+    }
+
+    &_active {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+
+      &:hover {
+        filter: opacity(1);
+      }
+    }
+  }
+
+  .btn-lng_marker {
+    position: absolute;
+    height: 5px;
+    background: red;
+    left: 0;
+    top: -4px;
+    transition: all .3s;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+  }
+}

@@ -1,0 +1,16 @@
+.weather {
+  display: flex;
+
+  .weather__temperature {
+    font-size: 6rem;
+
+    &::after {
+      content: '°';
+    }
+  }
+
+  .weather-parameter__wrapper {
+    min-width: 180px;
+    text-align: right;
+  }
+}

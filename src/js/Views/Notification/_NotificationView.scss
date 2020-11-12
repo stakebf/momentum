@@ -1,0 +1,37 @@
+.notification {
+	width: 280px;
+	padding: 10px;
+  min-height: 60px;
+	position: absolute;
+	transition: all .3s;
+  color: #fff;
+  font-size: 15px;
+  margin: 0 auto;
+	left: calc(50% - 140px);
+	border-bottom: 2px solid #fff;
+	border-left: 2px solid #fff;
+	border-right: 2px solid #fff;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+
+	&[data-type='error'] {
+		background-color: red;
+	}
+
+	&[data-type='success'] {
+		background-color: green;
+	}
+
+	&[data-type='info'] {
+		background-color: blue;
+	}
+
+	&.notification-hidden {
+		transition: all .3s;
+		top: -100px;
+	}
+
+	&.notification-visible {
+		top: 0;
+	}
+}

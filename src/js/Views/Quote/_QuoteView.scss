@@ -1,0 +1,224 @@
+.quote__wrapper {
+  min-height: 250px;
+  max-width: 70%;
+  position: relative;
+  background: rgba(144, 238, 144, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 0 auto;
+  border: 2px solid #fff;
+  opacity: 0;
+  transform: translateY(-400px);
+  transition: all .3s;
+
+  @media (max-width:660px) {
+    max-width: 100%;
+  }
+
+  &_visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .quote {
+    width: 100%;
+    background: rgba(255,255,255,.5);
+    padding: 15px;
+    border-radius: 5px;
+
+    &__controls {
+      display: flex;
+      justify-content: space-between;
+
+      @media(max-width: 410px) {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .refresh-quote-btn {
+        cursor: pointer;
+        width: 35px;
+        height: 35px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        background: url('../assets/images/rotate-arrows-white.png'), green;
+        background-size: cover;
+        background-repeat: no-repeat;
+        transition: .3s all;
+        animation-fill-mode: forwards;
+        animation: 1s linear infinite rot;
+        animation-play-state: paused;
+
+        @media(max-width: 410px) {
+          margin-bottom: 10px;
+        }
+
+        &:disabled {
+          animation-play-state: running;
+          filter: opacity(0.5);
+        }
+
+        &:hover {
+          filter: opacity(0.5);
+        }
+      }
+
+      .favourite-quote-btn {
+        cursor: pointer;
+        transition: .3s all;
+        border: 2px solid #fff;
+        border-radius: 5px;
+        padding: 5px 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 150px;
+        background: darkgreen;
+        color: #fff;
+
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          background-image: url('../assets/images/star.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          margin-right: 15px;
+        }
+
+        &:disabled {
+          filter: opacity(0.5);
+        }
+
+        &:hover {
+          opacity: .7;
+        }
+      }
+    }
+
+    &__content {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all .2s;
+      
+      &.hidden {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+    }
+
+    &__author {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all .2s;
+      display: block;
+      text-align: right;
+      
+      &.hidden {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+    }
+  }
+
+  .favourite-quotes {
+    list-style: none;
+    padding: 0;
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      background: #0d141f;
+      border-radius: 0 8px 8px 0;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      width: 8px;
+      background: #525861;
+      border-radius: 0 8px 8px 0;
+    }
+
+    &__item {
+      opacity: 0;
+      transform: translateX(-300px);
+      transition: all .3s;
+      display: flex;
+      background: rgba(255,255,255,.5);
+      padding: 10px;
+      border-radius: 5px;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      &.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    &__delete {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      background: rgba(255, 0, 0, 0.7);
+      color: #fff;
+      transition: all .3s;
+
+      &:hover {
+        opacity: .5;
+      }
+    }
+
+    &__content-wrapper {
+      border-left: 2px solid #fff;
+      margin-left: 10px;
+      padding-left: 10px;
+      width: 90%;
+    }
+
+    &__author {
+      text-align: right;
+    }
+  }
+}
+
+.loader {
+  width: 75px;
+  height: 75px;
+  border: 10px solid #fff;
+  border-radius: 50%;
+  border-top-color: green;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: 1s spin infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes rot {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
